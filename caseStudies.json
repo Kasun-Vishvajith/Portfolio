@@ -1,0 +1,86 @@
+[
+    {
+        "id": "walmart",
+        "title": "Walmart Sales Dashboard",
+        "overview": "Proud to share my first Excel Dashboard, developed as part of the DS 3001 – Data Visualization course.",
+        "content": [
+            {
+                "type": "heading",
+                "text": "Final Product",
+                "label": "Excel Dashboard",
+                "color": "orange",
+                "level": 1
+            },
+            {
+                "type": "text",
+                "text": "This project represents a key milestone in my journey toward mastering data visualization turning raw data into meaningful, interactive insights using Excel. I'm truly passionate about exploring the intersection of data and design, and I’m excited to keep building more dashboards that bring stories to life through data.",
+                "image": "assets/images/walmart/W1.jpeg",
+                "align": "bottom"
+            }
+        ]
+    },
+    {
+        "id": "formula",
+        "title": "Formula Car Performance Prediction",
+        "overview": "This project utilized advanced telemetry analysis and machine learning to optimize vehicle dynamics and driver performance benchmarks.",
+        "impactMetrics": {
+            "R2": "92%",
+            "Latency": "0.4s",
+            "Accuracy": "High",
+            "ModelEfficiency": "98%",
+            "BusinessImpact": "Improved lap strategy for racing teams"
+        },
+        "content": [
+            {
+                "type": "heading",
+                "text": "The Core Challenge",
+                "label": "Problem Statement",
+                "color": "orange",
+                "level": 1
+            },
+            {
+                "type": "text",
+                "text": "The primary objective was to reduce lap time variability by identifying optimal braking and acceleration points through high-frequency sensor data. Racing teams lacked a real-time system to translate raw telemetry into competitive insights.",
+                "image": "assets/images/formula/chart1.png",
+                "align": "right"
+            },
+            {
+                "type": "divider"
+            },
+            {
+                "type": "heading",
+                "text": "Strategic Modeling",
+                "label": "Methodology",
+                "color": "violet",
+                "level": 1
+            },
+            {
+                "type": "text",
+                "text": "We implemented a Gradient Boosted Regressor to predict target lap times. The model was trained on three seasons of historical telemetry, normalized for weather and tire degradation. Sub-models were used to handle corner-specific physics calculations.",
+                "image": "assets/images/formula/formula.jpg",
+                "align": "left"
+            },
+            {
+                "type": "spacer",
+                "size": "md"
+            },
+            {
+                "type": "heading",
+                "text": "Validation & Impact",
+                "label": "Results",
+                "color": "emerald",
+                "level": 1
+            },
+            {
+                "type": "text",
+                "text": "The final implementation resulted in a 92% R2 accuracy across diverse track layouts. By integrating the model into the pit-wall dashboard, race engineers could make data-driven strategy calls 30% faster than previous methods.",
+                "image": "assets/images/formula/chart2.png",
+                "align": "bottom"
+            },
+            {
+                "type": "spacer",
+                "size": "lg"
+            }
+        ]
+    }
+]

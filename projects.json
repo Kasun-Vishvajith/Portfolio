@@ -1,0 +1,41 @@
+[
+    {
+        "id": "walmart",
+        "title": "Walmart Sales Dashboard",
+        "description": "My first data science project using PowerBI",
+        "tech": [
+            "Excel"
+        ],
+        "image": "assets/images/walmart/W1.png",
+        "type": "internal",
+        "color": "from-rose-500 to-orange-400"
+    },
+    {
+        "id": "formula",
+        "title": "Formula Car Performance Prediction",
+        "description": "Utilizing telemetry data and ML to optimize vehicle dynamics and driver benchmarks.",
+        "tech": [
+            "Python",
+            "Scikit-Learn",
+            "Pandas"
+        ],
+        "image": "assets/images/formula/formula.jpg",
+        "type": "internal",
+        "color": "from-violet-600 to-blue-400"
+    },
+    {
+        "id": "sales-dashboard",
+        "title": "Sales Forecasting Dashboard",
+        "description": "Time series forecasting web application for business intelligence.",
+        "tech": [
+            "Streamlit",
+            "ARIMA",
+            "Statsmodels"
+        ],
+        "image": "assets/images/sales/cover.png",
+        "type": "external",
+        "liveLink": "https://example.streamlit.app",
+        "codeLink": "https://github.com/Kasun-Vishvajith/sales-forecast",
+        "color": "from-blue-600 to-cyan-400"
+    }
+]

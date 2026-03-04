@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;800&family=Merriweather:wght@300;400;700&display=swap');
+
+html {
+    scroll-behavior: smooth;
+    background-color: #050505;
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #050505;
+}
+
+/* Animations */
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(20px);
+    visibility: hidden;
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    will-change: opacity, visibility;
+}
+
+.fade-in-section.is-visible {
+    opacity: 1;
+    transform: none;
+    visibility: visible;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: #050505;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #1a1a1a;
+    border-radius: 0px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #2463eb;
+}
+
+/* Hover Scale utility - specialized for dark mode cards */
+.hover-scale {
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease;
+}
+
+.hover-scale:hover {
+    transform: scale(1.05);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Accordion Specific Defaults */
+.accordion-content {
+    transition: max-height 0.4s ease-in-out, opacity 0.4s ease-in-out, padding 0.4s ease-in-out;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+}
+
+.accordion-item.active .accordion-content {
+    max-height: 600px;
+    opacity: 1;
+}
+
+/* Modal styles */
+.modal-overlay {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-out, visibility 0.3s ease-out;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    transform: scale(0.95);
+    opacity: 0;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease-out;
+}
+
+.modal-overlay.active .modal-content {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.image-zoom-trigger {
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    cursor: zoom-in;
+}
+
+/* --- STITCH AESTHETIC INTEGRATIONS --- */
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.skill-card.expanded {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(36, 99, 235, 0.3);
+}
+
+.skill-card:hover:not(.expanded) {
+    background: rgba(255, 255, 255, 0.03);
+    border-color: rgba(255, 255, 255, 0.1);
+}
