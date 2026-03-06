@@ -30,7 +30,7 @@
         ],
         "image": "assets/images/BioSim/BS1.png",
         "type": "external",
-        "liveLink": "https://bio-sim-nine.vercel.app/",
+        "liveLink": "https://bio-sim-nine.vercel.app",
         "codeLink": "https://github.com/Kasun-Vishvajith/BioSim",
         "color": "from-blue-600 to-cyan-400"
     }
