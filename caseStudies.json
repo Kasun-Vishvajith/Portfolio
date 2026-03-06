@@ -18,5 +18,37 @@
                 "align": "bottom"
             }
         ]
+    },
+    {
+        "id": "walmart_BI",
+        "title": "Interactive Power BI Dashboard – Data Visualization Project",
+        "overview": "Proud to share my Power BI Dashboard, developed by enhancing and refining my initial Excel dashboard created for the DS 3001 – Data Visualization course.",
+        "content": [
+            {
+                "type": "heading",
+                "text": "Final Product",
+                "label": "PowerBI Dashboard",
+                "color": "orange",
+                "level": 1
+            },
+            {
+                "type": "text",
+                "text": "This project represents the next step in my data visualization journey. By transforming the original Excel dashboard into a more dynamic and interactive Power BI dashboard, I was able to explore advanced visualization features, improve data storytelling, and create a more engaging user experience. Through this process, I focused on turning raw data into clear insights using effective design, filters, and interactive visuals. I’m excited to continue developing more powerful dashboards and improving my ability to communicate insights through data.\n\n1st Page",
+                "image": "assets/images/walmart/WBI1.png",
+                "align": "bottom"
+            },
+            {
+                "type": "text",
+                "text": "2nd Page",
+                "image": "assets/images/walmart/WBI2.png",
+                "align": "bottom"
+            },
+            {
+                "type": "text",
+                "text": "3rd Page",
+                "image": "assets/images/walmart/WBI3.png",
+                "align": "bottom"
+            }
+        ]
     }
 ]
