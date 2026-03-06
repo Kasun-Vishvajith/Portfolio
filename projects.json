@@ -2,12 +2,36 @@
     {
         "id": "walmart",
         "title": "Walmart Sales Dashboard",
-        "description": "My first data science project using PowerBI",
+        "description": "Proud to share my first Excel Dashboard, developed as part of the DS 3001 – Data Visualization course.",
         "tech": [
             "Excel"
         ],
         "image": "assets/images/walmart/W1.png",
         "type": "internal",
         "color": "from-rose-500 to-orange-400"
-    }
+    },
+    {
+        "id": "walmart_BI",
+        "title": "Walmart Dashboard using PowerBI",
+        "description": "Interactive Power BI Dashboard – Data Visualization Project",
+        "tech": [
+            "PowerBI"
+        ],
+        "image": "assets/images/walmart/WBI1.jpg",
+        "type": "internal",
+        "color": "from-rose-500 to-orange-400"
+    },
+    {
+        "id": "biosim",
+        "title": "The Interactive Ecosystem Simulator",
+        "description": "EcoPulse is a state of the art educational platform designed to decouple the complexity of the Lotka-Volterra predator-prey model. By offering two distinct tiers—Nature Lab (Kids Version) and BioSim Pro (Professional Version)",
+        "tech": [
+            "Python"
+        ],
+        "image": "assets/images/BioSim/BS1.png",
+        "type": "external",
+        "liveLink": "https://bio-5sjufb5oa-kasun-vishvajiths-projects.vercel.app",
+        "codeLink": "https://github.com/Kasun-Vishvajith/BioSim",
+        "color": "from-blue-600 to-cyan-400"
+    
 ]
