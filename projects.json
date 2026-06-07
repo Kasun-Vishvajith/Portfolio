@@ -33,5 +33,19 @@
         "liveLink": "https://bio-sim-nine.vercel.app",
         "codeLink": "https://github.com/Kasun-Vishvajith/BioSim",
         "color": "from-blue-600 to-cyan-400"
+    },
+    {
+        "id": "diamond_intel",
+        "title": "Diamond Intel",
+        "description": "An advanced predictive modeling application powered by CatBoost machine learning to estimate diamond market values from physical specifications. Developed as an ML Course Final Project.",
+        "tech": [
+            "Python",
+            "CatBoost",
+            "Machine Learning",
+            "Streamlit"
+        ],
+        "image": "assets/images/diamond_intel/P1.jpeg",
+        "type": "internal",
+        "color": "from-violet-500 to-fuchsia-400"
     }
 ]
