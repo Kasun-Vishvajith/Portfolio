@@ -1,0 +1,249 @@
+%==============================================================
+% Kasun Vishvajith Vithanage — Curriculum Vitae
+% Compiler: XeLaTeX
+%==============================================================
+\documentclass[10pt, a4paper]{article}
+
+% ── Packages ──────────────────────────────────────────────────
+\usepackage[a4paper, top=1.6cm, bottom=1.6cm, left=1.7cm, right=1.7cm]{geometry}
+\usepackage{fontspec}
+\usepackage{microtype}
+\usepackage{parskip}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{fontawesome5}
+
+% ── Font: Liberation Sans (metric-identical to Arial) ─────────
+\setmainfont{Liberation Sans}[
+  BoldFont       = Liberation Sans Bold,
+  ItalicFont     = Liberation Sans Italic,
+  BoldItalicFont = Liberation Sans Bold Italic
+]
+
+% ── Colors ────────────────────────────────────────────────────
+\definecolor{cvnavy}{RGB}{31, 56, 100}
+\definecolor{darkgray}{RGB}{55, 55, 55}
+\definecolor{midgray}{RGB}{110, 110, 110}
+\definecolor{linkblue}{RGB}{17, 85, 204}
+\definecolor{iconcolor}{RGB}{31, 56, 100}
+
+% ── Hyperref ──────────────────────────────────────────────────
+\hypersetup{
+  colorlinks=true,
+  urlcolor=linkblue,
+  linkcolor=cvnavy,
+  pdftitle={Kasun Vishvajith CV},
+  pdfauthor={B.V. Kasun Vishvajith Vithanage}
+}
+
+% ── Layout ────────────────────────────────────────────────────
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\hyphenpenalty=10000
+\exhyphenpenalty=10000
+\sloppy
+
+% ── Section Headings ──────────────────────────────────────────
+\titleformat{\section}
+  {\color{cvnavy}\bfseries\normalsize}
+  {}{0em}{\MakeUppercase}
+  [\vspace{-4pt}{\color{cvnavy}\rule{\linewidth}{0.7pt}}\vspace{2pt}]
+\titlespacing{\section}{0pt}{9pt}{4pt}
+
+% ── Custom Commands ───────────────────────────────────────────
+
+\newcommand{\cventry}[3]{%
+  \begin{tabularx}{\linewidth}{@{}X r@{}}
+    \textbf{#1} \textcolor{midgray}{$|$ #2} &
+    \textit{\textcolor{midgray}{\small #3}}
+  \end{tabularx}\vspace{1pt}%
+}
+
+\newcommand{\cvproject}[2]{%
+  \vspace{5pt}%
+  \textbf{#1} \textcolor{midgray}{| \textit{#2} | Group Project}%
+  \vspace{1pt}%
+}
+
+\newenvironment{cvlist}{%
+  \begin{itemize}[leftmargin=1.3em, itemsep=1pt, topsep=2pt, parsep=0pt]
+}{%
+  \end{itemize}%
+}
+
+\newcommand{\skillrow}[2]{%
+  \noindent\textbf{#1:} \textcolor{darkgray}{#2}\\[2pt]%
+}
+
+\newcommand{\contactitem}[2]{%
+  {\color{iconcolor}#1}\enspace{\small #2}%
+}
+
+%==============================================================
+\begin{document}
+
+% ── HEADER ────────────────────────────────────────────────────
+\begin{center}
+  {\LARGE\bfseries\color{cvnavy} B.V. Kasun Vishvajith Vithanage}\\[5pt]
+  {\small\color{darkgray}
+    BSc (Hons) Data Science \enspace\textcolor{midgray}{|}\enspace
+    University of Colombo, Faculty of Science
+  }\\[7pt]
+  {\small
+    \contactitem{\faPhone}{+94\,753\,140\,204}
+    \enspace\textcolor{midgray}{|}\enspace
+    \contactitem{\faEnvelope}{\href{mailto:kasunvishvajithofficial@gmail.com}{kasunvishvajithofficial@gmail.com}}
+    \enspace\textcolor{midgray}{|}\enspace
+    \contactitem{\faLinkedin}{\href{https://linkedin.com/in/kasun-vishvajith-625746242}{kasun-vishvajith}}
+    \enspace\textcolor{midgray}{|}\enspace
+    \contactitem{\faGithub}{\href{https://github.com/Kasun-Vishvajith}{Kasun-Vishvajith}}
+    \enspace\textcolor{midgray}{|}\enspace
+    \contactitem{\faGlobe}{\href{https://kasun-vishvajith.github.io/Portfolio/}{Portfolio}}
+  }
+\end{center}
+
+\vspace{2pt}
+
+% ── PROFESSIONAL SUMMARY ──────────────────────────────────────
+\section{Professional Summary}
+
+\textcolor{darkgray}{%
+Final Year BSc Data Science student at the University of Colombo with hands-on experience in
+machine learning, statistical modelling, and data dashboards. Work experience in a banking
+environment combined with elected student leadership roles demonstrate strong communication
+and teamwork alongside technical ability. Seeking an internship or graduate role in Data Science
+or Machine Learning Engineering.}
+
+% ── TECHNICAL SKILLS ──────────────────────────────────────────
+\section{Technical Skills}
+
+\skillrow{Languages}{Python, R, SQL}
+\skillrow{Data Analysis \& Preprocessing}{Pandas, NumPy, Data Cleaning, Exploratory Data Analysis (EDA), Advanced Data Analysis}
+\skillrow{Machine Learning \& Deep Learning}{Regression, Classification, Time Series Forecasting}
+\skillrow{Business Intelligence}{Power BI, Tableau}
+\skillrow{Databases}{MySQL, MongoDB (basic)}
+\skillrow{Tools \& Platforms}{Git/GitHub, Jupyter Notebook, VS Code, RStudio, Minitab, SPSS}
+\skillrow{Web Development (Basic)}{HTML, CSS, JavaScript}
+
+% ── PROJECTS ──────────────────────────────────────────────────
+\section{Projects}
+
+\cvproject{Diamond Intel}{Python, CatBoost}
+\begin{cvlist}
+  \item Solved the gemstone valuation problem where highly nonlinear relationships make pricing complex and unstable.
+  \item Trained a CatBoost regression model using log transformed diamond prices and physical attributes (carat, cut, colour, clarity, dimensions).
+  \item Built a web application that outputs statistically bounded price ranges with 90\% and 95\% confidence intervals using a two-tier model system.
+  \item Gained insight into how log transformation stabilizes skewed targets and improves model generalization in regression tasks.
+\end{cvlist}
+
+\begin{samepage}
+\cvproject{EV Range Analysis and EDA}{R, Multiple Linear Regression, Logistic Regression}
+\begin{cvlist}
+  \item Conducted exploratory and predictive analysis on a 478 observation electric vehicle dataset to understand factors influencing driving range.
+  \item Performed extensive EDA using scatter plots, box plots, and categorical comparisons across EV segment, drivetrain, and physical specifications.
+  \item Built forward selection multiple linear regression achieving an Adjusted $R^2$ of 0.952 for range prediction.
+  \item Developed a logistic regression model achieving 95.8\% accuracy in classifying EVs into short range and long range categories.
+  \item Identified key patterns such as larger and wider vehicles being associated with higher range, while taller vehicles tend to show reduced range.
+  \item Learned how EDA complements regression by revealing relationships not fully captured by model coefficients alone.
+\end{cvlist}
+\end{samepage}
+
+\cvproject{Tea Yield Forecasting}{Python, SARIMAX, CatBoost}
+\begin{cvlist}
+  \item Forecasted Sri Lankan tea production across 21 combinations of tea types and elevation levels.
+  \item Developed a SARIMAX model to capture overall seasonal production trends.
+  \item Built separate CatBoost models for each tea type and elevation combination using environmental variables (rainfall, temperature, humidity).
+  \item Generated category specific forecasts that reflect environmental and elevation driven variability in production.
+  \item Learned how decomposing a multi output forecasting problem improves interpretability and model performance.
+\end{cvlist}
+
+% ── EDUCATION ─────────────────────────────────────────────────
+\pagebreak
+\section{Education}
+
+\cventry{BSc (Hons) in Data Science}{University of Colombo, Faculty of Science}{2023 -- Present (Final Year)}
+\begin{cvlist}
+  \item GPA: \textbf{3.82\,/\,4.00}
+  \item Relevant modules: Machine Learning, Deep Learning, Multivariate Analysis, Statistical
+        Inference, Time Series Analysis, Causal Inference, Data Structures \& Algorithms,
+        Database Management, Optimisation, Big Data Analytics, Natural Language Processing.
+\end{cvlist}
+
+\vspace{5pt}
+
+\cventry{G.C.E. Advanced Level}{Ananda College, Colombo 10}{2021}
+\begin{cvlist}
+  \item Physics -- \textbf{A} \enspace|\enspace Chemistry -- \textbf{B} \enspace|\enspace Combined Mathematics -- \textbf{C}
+\end{cvlist}
+
+\vspace{5pt}
+
+\cventry{G.C.E. Ordinary Level}{Ananda College, Colombo 10}{2018}
+\begin{cvlist}
+  \item \textbf{8 A passes} and 1 C pass across 9 subjects.
+\end{cvlist}
+
+% ── WORK EXPERIENCE ───────────────────────────────────────────
+\section{Work Experience}
+
+\cventry{Customer Call Operator, Recoveries Division}{Commercial Bank of Ceylon PLC, Head Office}{Feb 2023 -- May 2023}
+\begin{cvlist}
+  \item Contacted customers whose loan accounts were at risk of legal action or asset auction,
+        communicating recovery terms clearly and professionally.
+  \item Maintained accurate records of call outcomes and escalations within internal banking systems.
+  \item Developed professional communication skills in a regulated, high stakes financial services environment.
+\end{cvlist}
+
+% ── LEADERSHIP & EXTRACURRICULAR ──────────────────────────────
+\section{Leadership \& Extracurricular Activities}
+
+\cventry{IT Director}{Rotaract Club, University of Colombo, Faculty of Science}{2024 -- 2025}
+\begin{cvlist}
+  \item Managed the club's digital operations, including social media infrastructure, content planning, and online engagement strategies.
+  \item Coordinated a team of IT volunteers responsible for creating promotional videos, posters, and event-related digital content.
+  \item Provided technical and creative support for Rotaract events, ensuring smooth execution of digital media and event technology needs.
+\end{cvlist}
+
+\vspace{4pt}
+
+\cventry{First Year Coordinator}{Faculty of Science Student Union, University of Colombo}{2025 -- 2026}
+\begin{cvlist}
+  \item Elected representative for first-year students in the Faculty of Science Student Union.
+  \item Acted as a liaison between first-year students and the union board, communicating academic, welfare, and administrative concerns.
+\end{cvlist}
+
+\vspace{4pt}
+
+\cventry{First Year Representative}{Physics Society, University of Colombo}{2023 -- 2024}
+\begin{cvlist}
+  \item Represented first-year students within the Physics Society, encouraging participation in academic workshops and seminars.
+  \item Supported event coordination and helped increase engagement in society activities among junior students.
+\end{cvlist}
+
+\vspace{4pt}
+
+\cventry{IT Team Member}{Stat Circle, Department of Statistics, University of Colombo}{2023 -- 2024}
+\begin{cvlist}
+  \item Contributed to the creation of promotional content including posters, videos, and event highlight reels for departmental activities.
+  \item Assisted in digital media production and branding for Statistics Department events and initiatives.
+\end{cvlist}
+
+% ── REFEREES ──────────────────────────────────────────────────
+\section{Referees}
+
+\begin{tabularx}{\linewidth}{@{}X X@{}}
+  \textbf{Dr. Sameera Viswakula} & \textbf{Dr. D.S. Wickramarachchi} \\[2pt]
+  \textcolor{midgray}{Senior Lecturer, Dept. of Statistics} & \textcolor{midgray}{Lecturer, Dept. of Statistics} \\
+  \textcolor{midgray}{University of Colombo} & \textcolor{midgray}{University of Colombo} \\[2pt]
+  {\color{iconcolor}\faEnvelope}\enspace\href{mailto:sunethra@stat.cmb.ac.lk}{\small sunethra@stat.cmb.ac.lk} &
+  {\color{iconcolor}\faEnvelope}\enspace\href{mailto:deshanee@stat.cmb.ac.lk}{\small deshanee@stat.cmb.ac.lk} \\
+  {\color{iconcolor}\faPhone}\enspace{\small +94\,71\,357\,7290} &
+  {\color{iconcolor}\faPhone}\enspace{\small +94\,76\,746\,8200} \\
+\end{tabularx}
+
+\end{document}
