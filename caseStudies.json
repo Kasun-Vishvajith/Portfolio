@@ -50,5 +50,102 @@
                 "align": "bottom"
             }
         ]
+    },
+    {
+        "id": "diamond_intel",
+        "title": "Diamond Intel",
+        "overview": "Diamond Intel is an advanced predictive modeling platform for the gemstone market. Powered by a CatBoost machine learning model, it estimates precise diamond market values based on physical specifications.",
+        "impactMetrics": {
+            "ModelType": "CatBoost ML",
+            "Accuracy": "Premium Precision",
+            "Intervals": "90% & 95% Bounds",
+            "Features": "10-Dim Proportions"
+        },
+        "content": [
+            {
+                "type": "heading",
+                "text": "Project Overview & Team",
+                "label": "ML Course Final Project",
+                "color": "violet",
+                "level": 1
+            },
+            {
+                "type": "text",
+                "text": "Developed as an ML Course Final Project by Kasun Vishvajith, Isuru Dulakshana, and Gayani Wathsala, Diamond Intel solves the complex problem of gemstone valuation.\n\nPricing diamonds accurately is highly challenging due to non-linear relationships between weight, dimensions, and visual grades. This project leverages gradient boosted decision trees to output statistically robust valuation ranges for buyers and sellers.",
+                "image": "assets/images/diamond_intel/P1.jpeg",
+                "align": "bottom"
+            },
+            {
+                "type": "heading",
+                "text": "How The Prediction System Works",
+                "label": "Methodology",
+                "color": "orange",
+                "level": 1
+            },
+            {
+                "type": "text",
+                "text": "The predictive application runs in three core steps:\n\n1. Enter Specifications\nInput physical traits like Carat, Color, Clarity, and exact millimeter dimensions (X, Y, Z). The model supports both Natural/Lab-Grown Diamonds and Cubic Zirconia simulators.\n\n2. Process & Analyze\nThe engine evaluates multi-dimensional relationships using deep decision trees. Users can choose between a Normal model or an Advanced model for higher precision.\n\n3. Get Market Range\nInstead of a single point estimate, users receive a statistically bounds-checked prediction (90% or 95% interval). High/low ranges are tailored depending on whether the user is acting as a Buyer or a Seller."
+            },
+            {
+                "type": "heading",
+                "text": "Normal vs Advanced Model",
+                "label": "Model Tiers",
+                "color": "emerald",
+                "level": 2
+            },
+            {
+                "type": "text",
+                "text": "To support cases where detailed geometry metrics might be missing, we implemented two distinct models:\n\n• Normal Model\nUses 7 core features: Type, X, Y, Z, Carat, Clarity, and Color. It serves as an excellent baseline estimation when cut proportions are unknown.\n\n• Advanced Model\nIncorporates all 10 features including Cut Grade, Table %, and Depth %. This model provides the highest precision and tighter prediction intervals by incorporating proportion geometry."
+            },
+            {
+                "type": "heading",
+                "text": "The Gemstone Variables",
+                "label": "Feature Analysis",
+                "color": "violet",
+                "level": 1
+            },
+            {
+                "type": "text",
+                "text": "Understanding what drives diamond value:\n\n• Type: Diamond (natural/lab) vs Cubic Zirconia. Diamonds command a massive premium due to rarity and hardness.\n• Carat: The physical weight of the diamond (1 ct = 0.2g). Price grows exponentially with carat size.\n• Measurements (X, Y, Z): Length, Width, and Depth in mm. Determines visual size and light reflection.\n• Color: Grade of colorless purity, from D (colorless) to Z. The model supports grades D through J.\n• Clarity: Absence of internal flaws, ranging from IF (Internally Flawless) to I1 (Inclusions 1).\n• Cut Grade: Facet interaction with light (Ideal, Premium, Very Good, Good, Fair). Ideal cuts maximize brilliance.\n• Depth %: Z / Average Diameter. Ideal range is ~59% to 62.5%. If too deep or shallow, light leaks.\n• Table %: Width of the flat top facet divided by diameter. Ideal range is ~54% to 57%."
+            },
+            {
+                "type": "heading",
+                "text": "Standalone Diamond Tools",
+                "label": "Geometric Calculators",
+                "color": "orange",
+                "level": 1
+            },
+            {
+                "type": "text",
+                "text": "The app includes three standalone tools to assist users in manually analyzing proportion metrics:\n\n• Carat ↔ Grams converter\n• Depth % Calculator (Depth Z / average diameter X and Y)\n• Table % Calculator (Table width / average diameter X and Y)"
+            },
+            {
+                "type": "heading",
+                "text": "Mathematical Foundation & Log Price",
+                "label": "Under the Hood",
+                "color": "emerald",
+                "level": 2
+            },
+            {
+                "type": "text",
+                "text": "Diamond prices display exponential variance. To normalize variance across different carat categories, the model is trained to predict the natural logarithm of the price:\n\nLogPrice = ln(Price)\nFinal Price = exp(LogPrice)\n\nPrediction intervals use symmetric log-space deltas, providing bounded estimates that adjust organically depending on the base value."
+            },
+            {
+                "type": "divider"
+            },
+            {
+                "type": "gallery",
+                "label": "Application Interfaces",
+                "color": "violet",
+                "title": "Interactive Dashboard Showcase",
+                "columns": 2,
+                "images": [
+                    "assets/images/diamond_intel/P1.jpeg",
+                    "assets/images/diamond_intel/P2.jpeg",
+                    "assets/images/diamond_intel/P3.jpeg",
+                    "assets/images/diamond_intel/P4.jpeg"
+                ]
+            }
+        ]
     }
 ]

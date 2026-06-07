@@ -323,8 +323,8 @@ function renderCaseStudy(container, project) {
                     const ratio = block.aspectRatio && block.aspectRatio !== 'original' ? `style="aspect-ratio: ${block.aspectRatio};"` : '';
                     const fitClass = block.aspectRatio && block.aspectRatio !== 'original' ? 'object-cover' : 'w-full h-auto';
                     return `
-                        <div class="${baseClass} overflow-hidden border border-white/5 rounded-2xl bg-white/[0.02] w-full flex items-center justify-center" ${ratio}>
-                            <img src="${block.src || block.image}" class="${fitClass}" loading="lazy" onerror="this.onerror=null; this.src='assets/images/placeholder.png';">
+                        <div class="${baseClass} overflow-hidden border border-white/5 rounded-2xl bg-white/[0.02] w-full flex items-center justify-center cursor-pointer" ${ratio}>
+                            <img src="${block.src || block.image}" class="${fitClass} image-zoom-trigger transition-all duration-500 hover:scale-[1.02]" loading="lazy" onerror="this.onerror=null; this.src='assets/images/placeholder.png';">
                         </div>`;
 
                 case 'text':
@@ -333,8 +333,8 @@ function renderCaseStudy(container, project) {
                         const ratioT = block.aspectRatio && block.aspectRatio !== 'original' ? `style="aspect-ratio: ${block.aspectRatio};"` : '';
                         const fitClassT = block.aspectRatio && block.aspectRatio !== 'original' ? 'object-cover w-full h-full' : 'w-full h-auto';
                         const img = `
-                            <div class="overflow-hidden border border-white/5 rounded-2xl bg-white/[0.02] w-full flex items-center justify-center" ${ratioT}>
-                                <img src="${block.image}" class="${fitClassT}">
+                            <div class="overflow-hidden border border-white/5 rounded-2xl bg-white/[0.02] w-full flex items-center justify-center cursor-pointer" ${ratioT}>
+                                <img src="${block.image}" class="${fitClassT} image-zoom-trigger transition-all duration-500 hover:scale-[1.02]">
                             </div>`;
 
                         if (align === 'left') return `<div class="${baseClass} flex flex-col md:flex-row gap-12 items-center"><div class="w-full md:w-1/2">${img}</div><div class="w-full md:w-1/2">${textP}</div></div>`;
@@ -343,6 +343,29 @@ function renderCaseStudy(container, project) {
                         return `<div class="${baseClass} space-y-10 group">${img}${textP}</div>`;
                     }
                     return `<div class="${baseClass} group">${textP}</div>`;
+
+                case 'gallery':
+                    const cols = block.columns || 2;
+                    let gridClass = 'grid-cols-1 md:grid-cols-2';
+                    if (cols === 3) gridClass = 'grid-cols-1 md:grid-cols-3';
+                    else if (cols === 4) gridClass = 'grid-cols-2 md:grid-cols-4';
+                    
+                    return `
+                        <div class="${baseClass}">
+                            ${block.label ? `
+                            <div class="flex items-center gap-4 mb-8">
+                                <h3 class="text-${block.color || 'violet'} font-mono text-[10px] uppercase tracking-[0.4em] shrink-0">${block.label}</h3>
+                                <div class="h-px bg-white/5 flex-grow"></div>
+                            </div>` : ''}
+                            ${block.title ? `<h4 class="text-3xl md:text-4xl font-bold text-white tracking-tight mb-8">${block.title}</h4>` : ''}
+                            <div class="grid ${gridClass} gap-6">
+                                ${block.images.map(img => `
+                                    <div class="overflow-hidden border border-white/5 rounded-2xl flex items-center justify-center bg-white/[0.02] relative group aspect-video cursor-pointer">
+                                        <img src="${img}" class="w-full h-full object-cover grayscale opacity-75 image-zoom-trigger transition-all duration-700 group-hover:scale-105 group-hover:grayscale-0 group-hover:opacity-100" loading="lazy">
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>`;
 
                 case 'divider':
                     return `<div class="h-px bg-white/10 my-32 fade-in-section"></div>`;
