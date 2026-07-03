@@ -1062,15 +1062,41 @@ img {
     border: 1px solid var(--border);
     padding: 32px;
     text-align: center;
-    transition: border-color 0.2s;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
+.metric-card::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: var(--accent);
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform 0.3s ease-out;
+}
+
 .metric-card:hover {
     border-color: var(--text);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+}
+
+.metric-card:hover::before {
+    transform: scaleY(1);
+    transform-origin: top;
+}
+
+.metric-card:hover .metric-label {
+    color: var(--accent);
 }
 
 .metric-label {
@@ -1080,6 +1106,7 @@ img {
     text-transform: uppercase;
     color: var(--text-light);
     margin-bottom: 12px;
+    transition: color 0.25s;
 }
 
 .metric-value {
@@ -1462,4 +1489,560 @@ img {
     height: 4px;
     background: var(--text-light);
     opacity: 0.35;
+}
+
+/* ==========================================
+   CASE STUDY TYPOGRAPHY & LISTS
+   ========================================== */
+
+.case-paragraph {
+    font-size: 17px;
+    line-height: 1.8;
+    color: var(--text-muted);
+    font-weight: 300;
+    margin-bottom: 24px;
+}
+
+.case-paragraph:last-child {
+    margin-bottom: 0;
+}
+
+.case-list {
+    margin: 24px 0;
+    padding-left: 0;
+    list-style: none;
+}
+
+.case-list li {
+    font-size: 17px;
+    line-height: 1.8;
+    color: var(--text-muted);
+    font-weight: 300;
+    margin-bottom: 16px;
+    position: relative;
+    padding-left: 24px;
+}
+
+.case-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 9px;
+    width: 6px;
+    height: 6px;
+    background: var(--accent);
+    transform: rotate(45deg); /* Diamond shape bullet! */
+}
+
+.case-list li strong {
+    font-weight: 600;
+    color: var(--text);
+}
+
+/* ==========================================
+   DIAMOND INTEL INTERACTIVE TOOLKIT
+   ========================================== */
+
+.diamond-toolkit-section {
+    margin-top: 80px;
+    border-top: 1px solid var(--border);
+    padding-top: 64px;
+}
+
+.dt-tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 40px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 16px;
+}
+
+.dt-tab-btn {
+    background: none;
+    border: 1px solid transparent;
+    color: var(--text-muted);
+    font-family: var(--font);
+    font-size: 14px;
+    font-weight: 500;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: color 0.25s, border-color 0.25s, background-color 0.25s;
+}
+
+.dt-tab-btn:hover {
+    color: var(--text);
+}
+
+.dt-tab-btn.active {
+    color: var(--text);
+    border-color: var(--border);
+    background: var(--surface);
+    font-weight: 600;
+}
+
+.dt-tab-content {
+    display: none;
+}
+
+.dt-tab-content.active {
+    display: block;
+}
+
+/* Prediction Simulator Layout */
+.dt-simulator-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+}
+
+@media (min-width: 768px) {
+    .dt-simulator-grid {
+        grid-template-columns: 1.2fr 1fr;
+    }
+}
+
+.dt-inputs-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 32px;
+}
+
+.dt-card-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 24px;
+    letter-spacing: -0.02em;
+}
+
+.dt-form-group {
+    margin-bottom: 24px;
+}
+
+.dt-form-group:last-of-type {
+    margin-bottom: 0;
+}
+
+.dt-label-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.dt-form-group label {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+}
+
+.dt-label-row label {
+    margin-bottom: 0;
+}
+
+.dt-slider-value {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--accent);
+}
+
+.dt-input {
+    width: 100%;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    padding: 12px 16px;
+    font-family: var(--font);
+    font-size: 14px;
+    color: var(--text);
+    outline: none;
+    transition: border-color 0.25s, background-color 0.25s;
+}
+
+.dt-input:focus {
+    border-color: var(--text);
+    background: var(--surface);
+}
+
+.dt-input:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.dt-form-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+@media (min-width: 480px) {
+    .dt-form-row {
+        grid-template-columns: 1fr 1fr;
+    }
+    .dt-form-row:has(.dt-form-group:nth-child(3)) {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+.dt-slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 4px;
+    background: var(--border);
+    outline: none;
+    margin: 12px 0;
+}
+
+.dt-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--accent);
+    cursor: pointer;
+    transition: transform 0.15s;
+}
+
+.dt-slider::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+}
+
+.dt-adv-only {
+    border-top: 1px dashed var(--border);
+    padding-top: 24px;
+    margin-top: 24px;
+    transition: opacity 0.3s;
+}
+
+.dt-readout-box {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    padding: 12px 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    font-size: 13px;
+    color: var(--text-muted);
+}
+
+.dt-readout-box strong {
+    color: var(--text);
+}
+
+.dt-toggle-group {
+    display: flex;
+    border: 1px solid var(--border);
+    background: var(--bg);
+}
+
+.dt-toggle-btn {
+    flex: 1;
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-family: var(--font);
+    font-size: 13px;
+    font-weight: 500;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.dt-toggle-btn.active {
+    background: var(--surface);
+    color: var(--text);
+    font-weight: 600;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+}
+
+/* Certificate Display Styling */
+.dt-certificate-card {
+    background: #111111; /* Sleek dark luxury look for the diamond certificate */
+    color: #ffffff;
+    border: 1px solid #222222;
+    padding: 6px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    position: relative;
+    overflow: hidden;
+}
+
+.dt-certificate-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.01) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.01) 1px, transparent 1px);
+    background-size: 20px 20px;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.dt-cert-inner {
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 32px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    z-index: 1;
+}
+
+.dt-cert-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 16px;
+    margin-bottom: 32px;
+}
+
+.dt-cert-logo {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.dt-cert-serial {
+    font-size: 11px;
+    font-family: monospace;
+    color: rgba(255, 255, 255, 0.4);
+    letter-spacing: 0.05em;
+}
+
+.dt-cert-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.dt-cert-title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    color: var(--accent);
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+.dt-cert-spec-summary {
+    font-size: 14px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.6);
+    text-align: center;
+    margin-bottom: 40px;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.08);
+    padding-bottom: 16px;
+}
+
+.dt-cert-price-box {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.dt-cert-price-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    color: rgba(255, 255, 255, 0.4);
+    display: block;
+    margin-bottom: 8px;
+}
+
+.dt-cert-price-val {
+    font-size: clamp(36px, 4.5vw, 48px);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: #ffffff;
+    line-height: 1.1;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.dt-cert-bounds-box {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 16px;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.dt-cert-bounds-title {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.4);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 6px;
+}
+
+.dt-cert-bounds-range {
+    font-size: 18px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.85);
+    letter-spacing: 0.02em;
+}
+
+.dt-spectrum-wrap {
+    margin-top: 16px;
+}
+
+.dt-spectrum-bar {
+    height: 6px;
+    background: linear-gradient(90deg, #4facfe 0%, #00f2fe 30%, #a8edea 70%, #fed22c 100%);
+    border-radius: 3px;
+    position: relative;
+    margin-bottom: 12px;
+}
+
+.dt-spectrum-marker {
+    width: 4px;
+    height: 14px;
+    background: #ffffff;
+    border: 1px solid #111111;
+    position: absolute;
+    top: -4px;
+    transform: translateX(-50%);
+    box-shadow: 0 0 8px rgba(255,255,255,0.8);
+    transition: left 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dt-spectrum-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
+    color: rgba(255, 255, 255, 0.4);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.dt-cert-footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 16px;
+    margin-top: 32px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
+    color: rgba(255, 255, 255, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Standalone Calculators Grid */
+.dt-calculators-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+}
+
+@media (min-width: 900px) {
+    .dt-calculators-grid {
+        grid-template-columns: 1fr 1.2fr 1.2fr;
+    }
+}
+
+.dt-calc-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+}
+
+.dt-calc-badge {
+    align-self: flex-start;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    padding: 4px 8px;
+    margin-bottom: 20px;
+}
+
+.dt-calc-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 12px;
+    letter-spacing: -0.01em;
+}
+
+.dt-calc-desc {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+    line-height: 1.5;
+}
+
+.dt-calc-inputs {
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.dt-calc-input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.dt-calc-input-group label {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-light);
+}
+
+.dt-calc-result-box {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    padding: 20px;
+    text-align: center;
+    margin-top: 16px;
+}
+
+.dt-result-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-light);
+    margin-bottom: 8px;
+}
+
+.dt-result-value {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 12px;
+}
+
+.dt-result-badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px 12px;
+}
+
+.dt-result-badge.badge-ideal {
+    background: rgba(16, 185, 129, 0.08);
+    color: #059669;
+    border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.dt-result-badge.badge-warning {
+    background: rgba(245, 158, 11, 0.08);
+    color: #d97706;
+    border: 1px solid rgba(245, 158, 11, 0.2);
 }
