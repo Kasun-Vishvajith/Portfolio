@@ -984,9 +984,19 @@ function renderCaseStudy(container, project) {
                         .split(/\\\\|\n/)
                         .map(l => l.trim())
                         .filter(Boolean);
-                    const formulaHtml = formulaLines.map(line =>
-                        '<div class="case-formula-line">' + line + '</div>'
-                    ).join('');
+                    const formulaHtml = formulaLines.map(line => {
+                        if (window.katex) {
+                            try {
+                                return '<div class="case-formula-line">' +
+                                    window.katex.renderToString(line, { displayMode: true, throwOnError: false }) +
+                                '</div>';
+                            } catch (e) {
+                                console.error("KaTeX rendering error:", e);
+                                return '<div class="case-formula-line raw-text">' + line + '</div>';
+                            }
+                        }
+                        return '<div class="case-formula-line raw-text">' + line + '</div>';
+                    }).join('');
                     return '<div class="case-block fade-in-section">' +
                         '<div class="case-formula-box">' +
                             formulaHtml +

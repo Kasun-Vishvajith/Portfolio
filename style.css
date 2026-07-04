@@ -2207,7 +2207,6 @@ img {
 }
 
 .case-formula-line {
-    font-family: 'Courier New', 'Consolas', monospace;
     font-size: 16px;
     font-weight: 500;
     color: rgba(255, 255, 255, 0.88);
@@ -2215,6 +2214,17 @@ img {
     line-height: 1.5;
     position: relative;
     z-index: 1;
+}
+
+.case-formula-line.raw-text {
+    font-family: 'Courier New', 'Consolas', monospace;
+}
+
+.case-formula-line .katex-display {
+    margin: 0;
+    padding: 4px 0;
+    overflow-x: auto;
+    overflow-y: hidden;
 }
 
 .case-formula-line:not(:last-child)::after {
