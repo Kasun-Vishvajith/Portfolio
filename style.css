@@ -1071,6 +1071,7 @@ img {
     align-items: center;
 }
 
+/* Left accent bar — identical to home card effect */
 .metric-card::before {
     content: '';
     position: absolute;
@@ -1084,6 +1085,20 @@ img {
     transition: transform 0.3s ease-out;
 }
 
+/* Decorative corner squares — same language as home cards */
+.metric-card::after {
+    content: '';
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    bottom: 16px;
+    right: 16px;
+    background: var(--accent);
+    opacity: 0.06;
+    transition: opacity 0.3s;
+    pointer-events: none;
+}
+
 .metric-card:hover {
     border-color: var(--text);
     transform: translateY(-2px);
@@ -1093,6 +1108,10 @@ img {
 .metric-card:hover::before {
     transform: scaleY(1);
     transform-origin: top;
+}
+
+.metric-card:hover::after {
+    opacity: 0.14;
 }
 
 .metric-card:hover .metric-label {
@@ -1511,32 +1530,144 @@ img {
     margin: 24px 0;
     padding-left: 0;
     list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
 }
 
 .case-list li {
-    font-size: 17px;
-    line-height: 1.8;
+    font-size: 16px;
+    line-height: 1.75;
     color: var(--text-muted);
     font-weight: 300;
-    margin-bottom: 16px;
+    padding: 14px 20px 14px 44px;
     position: relative;
-    padding-left: 24px;
+    border: 1px solid transparent;
+    transition: border-color 0.2s, background-color 0.2s;
+    background: var(--surface);
 }
 
+.case-list li:hover {
+    border-color: var(--border);
+    background: var(--surface);
+}
+
+/* Diamond bullet — same gem motif as the project */
 .case-list li::before {
     content: '';
     position: absolute;
-    left: 0;
-    top: 9px;
-    width: 6px;
-    height: 6px;
+    left: 18px;
+    top: 20px;
+    width: 8px;
+    height: 8px;
     background: var(--accent);
-    transform: rotate(45deg); /* Diamond shape bullet! */
+    transform: rotate(45deg);
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.case-list li:hover::before {
+    transform: rotate(45deg) scale(1.3);
 }
 
 .case-list li strong {
     font-weight: 600;
     color: var(--text);
+    display: inline;
+}
+
+/* ==========================================
+   DIAMOND INTEL — PROJECT HERO BAND
+   ========================================== */
+
+.di-hero-band {
+    background: #111111;
+    border: 1px solid #222222;
+    padding: 48px 40px;
+    margin-bottom: 2px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.di-hero-band::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+    background-size: 24px 24px;
+    pointer-events: none;
+}
+
+.di-hero-gem {
+    flex-shrink: 0;
+    position: relative;
+    width: 72px;
+    height: 72px;
+}
+
+.di-gem-svg {
+    width: 72px;
+    height: 72px;
+    filter: drop-shadow(0 0 16px rgba(200, 16, 46, 0.4));
+    animation: di-gem-pulse 3s ease-in-out infinite;
+}
+
+@keyframes di-gem-pulse {
+    0%, 100% { filter: drop-shadow(0 0 12px rgba(200, 16, 46, 0.35)); }
+    50%       { filter: drop-shadow(0 0 24px rgba(200, 16, 46, 0.6)); }
+}
+
+.di-hero-text {
+    flex: 1;
+    position: relative;
+    z-index: 1;
+}
+
+.di-hero-badge {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 10px;
+    display: block;
+}
+
+.di-hero-title {
+    font-size: clamp(24px, 3.5vw, 36px);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    color: #ffffff;
+    line-height: 1.1;
+    margin-bottom: 12px;
+}
+
+.di-hero-sub {
+    font-size: 15px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.6;
+    max-width: 520px;
+}
+
+.di-hero-decorators {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 200px;
+    pointer-events: none;
+    overflow: hidden;
+    opacity: 0.25;
+}
+
+.di-deco-sq {
+    position: absolute;
+    border: 1px solid rgba(255,255,255,0.15);
 }
 
 /* ==========================================
@@ -2045,4 +2176,61 @@ img {
     background: rgba(245, 158, 11, 0.08);
     color: #d97706;
     border: 1px solid rgba(245, 158, 11, 0.2);
+}
+
+/* ==========================================
+   FORMULA DISPLAY BLOCK
+   ========================================== */
+
+.case-formula-box {
+    background: #111111;
+    border: 1px solid #222222;
+    border-left: 3px solid var(--accent);
+    padding: 28px 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    position: relative;
+    overflow: hidden;
+    margin: 8px 0 24px;
+}
+
+.case-formula-box::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(255,255,255,0.012) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.012) 1px, transparent 1px);
+    background-size: 20px 20px;
+    pointer-events: none;
+}
+
+.case-formula-line {
+    font-family: 'Courier New', 'Consolas', monospace;
+    font-size: 16px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.88);
+    letter-spacing: 0.04em;
+    line-height: 1.5;
+    position: relative;
+    z-index: 1;
+}
+
+.case-formula-line:not(:last-child)::after {
+    content: '';
+    display: block;
+    height: 1px;
+    background: rgba(255,255,255,0.05);
+    margin-top: 12px;
+}
+
+/* ==========================================
+   GALLERY LABEL COLOR SUPPORT
+   ========================================== */
+
+/* Allow case section labels to use project color via inline style */
+.case-section-label[style] {
+    /* color comes from inline style — just ensure transition */
+    transition: opacity 0.2s;
 }

@@ -893,9 +893,17 @@ function renderCaseStudy(container, project) {
                     const level = block.level || 1;
                     const headingClass = level === 1 ? 'case-heading-h2' : 'case-heading-h3';
                     const tag = level === 1 ? 'h2' : 'h3';
+                    // Map color names to CSS custom properties or inline colors
+                    const colorMap = {
+                        'violet':  '#7c3aed',
+                        'emerald': '#059669',
+                        'orange':  '#d97706',
+                        'red':     'var(--accent)'
+                    };
+                    const labelColor = colorMap[block.color] || 'var(--accent)';
                     return '<div class="case-block fade-in-section">' +
                         '<div class="case-section-header">' +
-                            '<span class="case-section-label">' + (block.label || 'Section') + '</span>' +
+                            '<span class="case-section-label" style="color:' + labelColor + '">' + (block.label || 'Section') + '</span>' +
                             '<div class="case-section-line"></div>' +
                         '</div>' +
                         '<' + tag + ' class="' + headingClass + '">' + block.text + '</' + tag + '>' +
@@ -941,8 +949,15 @@ function renderCaseStudy(container, project) {
 
                     let galleryHeader = '';
                     if (block.label) {
+                        const galleryColorMap = {
+                            'violet':  '#7c3aed',
+                            'emerald': '#059669',
+                            'orange':  '#d97706',
+                            'red':     'var(--accent)'
+                        };
+                        const galleryLabelColor = galleryColorMap[block.color] || 'var(--accent)';
                         galleryHeader = '<div class="case-section-header">' +
-                            '<span class="case-section-label">' + block.label + '</span>' +
+                            '<span class="case-section-label" style="color:' + galleryLabelColor + '">' + block.label + '</span>' +
                             '<div class="case-section-line"></div>' +
                             '</div>';
                     }
@@ -962,6 +977,21 @@ function renderCaseStudy(container, project) {
                             }).join('') +
                         '</div>' +
                         '</div>';
+
+                case 'formula':
+                    // Render each line of the formula text
+                    const formulaLines = (block.text || '')
+                        .split(/\\\\|\n/)
+                        .map(l => l.trim())
+                        .filter(Boolean);
+                    const formulaHtml = formulaLines.map(line =>
+                        '<div class="case-formula-line">' + line + '</div>'
+                    ).join('');
+                    return '<div class="case-block fade-in-section">' +
+                        '<div class="case-formula-box">' +
+                            formulaHtml +
+                        '</div>' +
+                    '</div>';
 
                 case 'divider':
                     return '<div class="case-divider fade-in-section"></div>';
@@ -1034,7 +1064,39 @@ function renderCaseStudy(container, project) {
         toolkitHtml = createDiamondIntelToolkitHtml();
     }
 
-    // 4. Assemble
+    // 4. Diamond Intel custom hero band
+    let diHeroBandHtml = '';
+    if (project.id.trim() === 'diamond_intel') {
+        diHeroBandHtml = `
+        <div class="di-hero-band fade-in-section">
+            <div class="di-hero-gem">
+                <svg class="di-gem-svg" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <!-- Brilliant cut diamond shape -->
+                    <polygon points="40,4 70,28 40,76 10,28" fill="none" stroke="rgba(200,16,46,0.9)" stroke-width="1.5"/>
+                    <polygon points="40,4 70,28 55,28 40,14" fill="rgba(200,16,46,0.12)"/>
+                    <polygon points="10,28 25,28 40,14 40,4" fill="rgba(200,16,46,0.06)"/>
+                    <polygon points="25,28 55,28 40,76" fill="rgba(200,16,46,0.08)"/>
+                    <polygon points="40,4 70,28" stroke="rgba(200,16,46,0.5)" stroke-width="0.75"/>
+                    <line x1="10" y1="28" x2="70" y2="28" stroke="rgba(200,16,46,0.4)" stroke-width="0.75"/>
+                    <line x1="25" y1="28" x2="40" y2="4" stroke="rgba(255,255,255,0.15)" stroke-width="0.5"/>
+                    <line x1="55" y1="28" x2="40" y2="4" stroke="rgba(255,255,255,0.15)" stroke-width="0.5"/>
+                    <circle cx="40" cy="28" r="2" fill="rgba(200,16,46,0.6)"/>
+                </svg>
+            </div>
+            <div class="di-hero-text">
+                <span class="di-hero-badge">ML Course Final Project &mdash; CatBoost Engine</span>
+                <div class="di-hero-title">Diamond Intel</div>
+                <p class="di-hero-sub">Gradient boosted decision trees trained on 10-dimensional gemstone geometry &mdash; outputting <strong style="color:rgba(255,255,255,0.85); font-weight:500;">statistically bounded market valuations</strong> for buyers &amp; sellers.</p>
+            </div>
+            <div class="di-hero-decorators" aria-hidden="true">
+                <div class="di-deco-sq" style="width:80px; height:80px; top:10px; right:20px;"></div>
+                <div class="di-deco-sq" style="width:40px; height:40px; top:50px; right:70px;"></div>
+                <div class="di-deco-sq" style="width:24px; height:24px; top:20px; right:120px;"></div>
+            </div>
+        </div>`;
+    }
+
+    // 5. Assemble
     container.innerHTML =
         '<div class="container" style="position: relative; overflow: visible;">' +
             '<!-- Floating Background Squares (Desktop Only) -->' +
@@ -1058,6 +1120,7 @@ function renderCaseStudy(container, project) {
                 '<h1 class="case-title">' + project.title + '</h1>' +
                 '<p class="case-overview">' + project.overview + '</p>' +
             '</header>' +
+            diHeroBandHtml +
             metricsHtml +
             contentHtml +
             galleryHtml +

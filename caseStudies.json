@@ -54,7 +54,7 @@
     {
         "id": "diamond_intel",
         "title": "Diamond Intel",
-        "overview": "Diamond Intel is an advanced predictive modeling platform for the gemstone market. Powered by a CatBoost machine learning model, it estimates precise diamond market values based on physical specifications.",
+        "overview": "An advanced predictive modeling platform for the gemstone market. Powered by a CatBoost gradient boosted decision tree model, it estimates statistically robust diamond market values — with confidence-bounded price ranges for both buyers and sellers.",
         "impactMetrics": {
             "ModelType": "CatBoost ML",
             "Accuracy": "Premium Precision",
@@ -71,7 +71,7 @@
             },
             {
                 "type": "text",
-                "text": "Developed as an **ML Course Final Project** by **Kasun Vishvajith, Isuru Dulakshana, and Gayani Wathsala**, **Diamond Intel** solves the complex problem of gemstone valuation.\n\nPricing diamonds accurately is highly challenging due to **non-linear relationships** between weight, dimensions, and visual grades. This project leverages **gradient boosted decision trees** to output **statistically robust valuation ranges** for buyers and sellers.",
+                "text": "**Diamond Intel** was developed as an **ML Course Final Project** by a team of three:\n\n• **Kasun Vishvajith** — ML modelling, CatBoost pipeline, prediction interval system & application architecture.\n• **Isuru Dulakshana** — Feature engineering, data preprocessing & Normal model development.\n• **Gayani Wathsala** — Exploratory data analysis, clarity/color encoding & evaluation metrics.\n\nThe core problem we tackled: **pricing diamonds accurately is non-trivial**. The relationships between carat weight, geometric dimensions, and visual quality grades are deeply **non-linear** — making simple regression models unreliable. This project applies **gradient boosted decision trees** to output statistically robust, confidence-bounded valuation ranges.",
                 "image": "assets/images/diamond_intel/P1.jpeg",
                 "align": "bottom"
             },
@@ -84,7 +84,7 @@
             },
             {
                 "type": "text",
-                "text": "The predictive application runs in **three core steps**:\n\n• **1. Enter Specifications**: Input physical traits like **Carat, Color, Clarity**, and exact millimeter dimensions (**X, Y, Z**). The model supports both **Natural/Lab-Grown Diamonds** and **Cubic Zirconia** simulators.\n• **2. Process & Analyze**: The engine evaluates multi-dimensional relationships using **deep decision trees**. Users can choose between a **Normal model** or an **Advanced model** for higher precision.\n• **3. Get Market Range**: Instead of a single point estimate, users receive a **statistically bounds-checked prediction** (90% or 95% interval). High/low ranges are tailored depending on whether the user is acting as a **Buyer** or a **Seller**."
+                "text": "The predictive application runs in **three core steps**:\n\n• **Enter Specifications**: Input physical traits like **Carat, Color, Clarity**, and exact millimeter dimensions (**X, Y, Z**). The model supports **Natural/Lab-Grown Diamonds** and **Cubic Zirconia** simulants.\n• **Process & Analyze**: The CatBoost engine evaluates multi-dimensional feature interactions using **deep decision trees**. Choose between the **Normal model** (7 features) or the **Advanced model** (10 features) for higher precision.\n• **Get Market Range**: Instead of a single price point, you receive a **statistically bounds-checked prediction** at either 90% or 95% confidence. Ranges are adjusted based on whether you are acting as a **Buyer** or a **Seller**."
             },
             {
                 "type": "heading",
@@ -95,7 +95,7 @@
             },
             {
                 "type": "text",
-                "text": "To support cases where detailed geometry metrics might be missing, we implemented **two distinct models**:\n\n• **Normal Model**: Uses **7 core features** (Type, X, Y, Z, Carat, Clarity, and Color). It serves as an **excellent baseline estimation** when cut proportions are unknown.\n• **Advanced Model**: Incorporates **all 10 features** including **Cut Grade, Table %, and Depth %**. This model provides the **highest precision** and **tighter prediction intervals** by incorporating proportion geometry."
+                "text": "To support scenarios where full geometric data is unavailable, we built **two distinct model tiers**:\n\n• **Normal Model** — Uses **7 core features**: Type, X, Y, Z, Carat, Clarity, and Color. An excellent baseline when cut proportions are unknown. Confidence interval: **±13% std error** in log-space.\n• **Advanced Model** — Incorporates **all 10 features**, adding **Cut Grade, Table %, and Depth %**. Delivers the highest precision with **tighter confidence bounds** (±7% std error in log-space) by fully exploiting proportion geometry."
             },
             {
                 "type": "heading",
@@ -106,7 +106,7 @@
             },
             {
                 "type": "text",
-                "text": "Understanding what drives diamond value:\n\n• **Type**: Diamond (natural/lab) vs Cubic Zirconia. Diamonds command a **massive premium** due to rarity and hardness.\n• **Carat**: The physical weight of the diamond (1 ct = 0.2g). Price grows **exponentially** with carat size.\n• **Measurements (X, Y, Z)**: Length, Width, and Depth in mm. Determines **visual size** and **light reflection**.\n• **Color**: Grade of colorless purity, from **D (colorless)** to **Z**. The model supports grades D through J.\n• **Clarity**: Absence of internal flaws, ranging from **IF (Internally Flawless)** to **I1 (Inclusions 1)**.\n• **Cut Grade**: Facet interaction with light (**Ideal, Premium, Very Good, Good, Fair**). Ideal cuts maximize brilliance.\n• **Depth %**: Z / Average Diameter. **Ideal range is ~59% to 62.5%**. If too deep or shallow, light leaks.\n• **Table %**: Width of the flat top facet divided by diameter. **Ideal range is ~54% to 57%**."
+                "text": "Each of the **10 input features** captures a distinct physical or optical property of the stone:\n\n• **Type**: Natural/Lab Diamond vs Cubic Zirconia. Diamonds command a **massive rarity premium** — reflected directly in the model's log-price intercept.\n• **Carat**: Physical mass of the diamond (1 ct = 0.2 g). Price scales **exponentially** — a 2 ct stone costs far more than 2× a 1 ct stone.\n• **Measurements (X, Y, Z)**: Length, Width, and Depth in millimetres. Determines **apparent visual size** and governs **light path through the facets**.\n• **Color Grade**: Colorless purity scale from **D (premium colorless)** to **J (near colorless)**. The model encodes grades D–J.\n• **Clarity Grade**: Absence of internal inclusions, from **IF (Internally Flawless)** to **I1 (Inclusions visible to the naked eye)**.\n• **Cut Grade**: Facet alignment quality — **Ideal, Premium, Very Good, Good, Fair**. Ideal cuts maximize light return and brilliance.\n• **Depth %**: Z ÷ average diameter (X+Y)/2. **Ideal range: ~59% to 62.5%**. Stones outside this range lose brilliance as light leaks.\n• **Table %**: Width of the flat top facet ÷ average diameter. **Ideal range: ~54% to 57%**. Extremes dull the stone's scintillation."
             },
             {
                 "type": "heading",
@@ -117,18 +117,22 @@
             },
             {
                 "type": "text",
-                "text": "The app includes **three standalone tools** to assist users in manually analyzing proportion metrics:\n\n• **Carat ↔ Grams converter**: Easily convert weight metrics between carats and grams.\n• **Depth % Calculator**: Computes Depth Z / average diameter X and Y to check proportions.\n• **Table % Calculator**: Computes Table width / average diameter X and Y."
+                "text": "Beyond the ML predictor, the app ships **three standalone proportion tools** for manual gem analysis:\n\n• **Carat ↔ Grams Converter**: Instantly translate between carat weight and grams (1 ct = 0.2 g).\n• **Depth % Calculator**: Input X, Y, Z dimensions to compute Z ÷ average(X,Y) — with an **Ideal / Shallow / Deep** quality badge.\n• **Table % Calculator**: Input table width and diameter to compute the table ratio — with **Ideal / Narrow / Wide** assessment."
             },
             {
                 "type": "heading",
-                "text": "Mathematical Foundation & Log Price",
+                "text": "Mathematical Foundation & Log-Price Modelling",
                 "label": "Under the Hood",
                 "color": "emerald",
                 "level": 2
             },
             {
+                "type": "formula",
+                "text": "LogPrice = \\ln(\\text{Price}) \\\\\n\\text{Final Price} = \\exp(\\text{LogPrice}) \\\\\n\\text{Interval} = \\exp(\\text{LogPrice} \\pm z \\cdot \\sigma)"
+            },
+            {
                 "type": "text",
-                "text": "Diamond prices display **exponential variance**. To normalize variance across different carat categories, the model is trained to predict the **natural logarithm** of the price:\n\n**LogPrice = ln(Price)**\n**Final Price = exp(LogPrice)**\n\nPrediction intervals use **symmetric log-space deltas**, providing bounded estimates that adjust organically depending on the base value."
+                "text": "Diamond prices exhibit **exponential variance** — a 5-carat stone isn't 5× more expensive than a 1-carat stone, it can be 20×. To model this correctly, we train on the **natural logarithm of price** rather than raw price:\n\n• **Training target**: LogPrice = ln(Price) — this linearises the exponential relationship and stabilises model variance across all carat categories.\n• **Inference**: Final Price = exp(LogPrice) — we exponentiate the prediction to recover the dollar value.\n• **Prediction Intervals**: Computed as symmetric log-space deltas — exp(LogPrice ± z·σ) — where z = 1.645 for 90% bounds and z = 1.96 for 95% bounds. This ensures intervals **widen naturally** for high-value stones."
             },
             {
                 "type": "divider"
