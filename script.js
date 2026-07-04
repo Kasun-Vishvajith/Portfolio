@@ -133,7 +133,7 @@ function createProjectCard(project, delay) {
         ? "location.href='" + targetLink + "'"
         : "window.open('" + targetLink + "', '_blank')";
 
-    const fallbackHtml = '<div class="project-fallback"><span class="project-fallback-title">' + project.title + '</span></div>';
+    const fallbackHtml = '<div class=\'project-fallback\'><span class=\'project-fallback-title\'>' + project.title + '</span></div>';
 
     let imageInner;
     if (project.image) {
