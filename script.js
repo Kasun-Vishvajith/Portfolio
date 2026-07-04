@@ -407,10 +407,7 @@ function createDiamondIntelToolkitHtml() {
                             </div>
                         </div>
                         
-                        <div class="dt-cert-footer">
-                            <div>CatBoost ML Engine v2.4 (Active)</div>
-                            <div style="text-align: right;">Symmetric Log-Space Bounds</div>
-                        </div>
+
                     </div>
                 </div>
             </div>

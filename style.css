@@ -545,7 +545,7 @@ img {
     background: var(--accent);
 }
 
-/* Decorative section squares — page-level accents */
+/* Decorative section squares - page-level accents */
 .section-decor {
     position: relative;
 }
@@ -1071,7 +1071,7 @@ img {
     align-items: center;
 }
 
-/* Left accent bar — identical to home card effect */
+/* Left accent bar - identical to home card effect */
 .metric-card::before {
     content: '';
     position: absolute;
@@ -1085,7 +1085,7 @@ img {
     transition: transform 0.3s ease-out;
 }
 
-/* Decorative corner squares — same language as home cards */
+/* Decorative corner squares - same language as home cards */
 .metric-card::after {
     content: '';
     position: absolute;
@@ -1552,7 +1552,7 @@ img {
     background: var(--surface);
 }
 
-/* Diamond bullet — same gem motif as the project */
+/* Diamond bullet - same gem motif as the project */
 .case-list li::before {
     content: '';
     position: absolute;
@@ -1576,7 +1576,7 @@ img {
 }
 
 /* ==========================================
-   DIAMOND INTEL — PROJECT HERO BAND
+   DIAMOND INTEL - PROJECT HERO BAND
    ========================================== */
 
 .di-hero-band {
@@ -2054,17 +2054,6 @@ img {
     letter-spacing: 0.05em;
 }
 
-.dt-cert-footer {
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding-top: 16px;
-    margin-top: 32px;
-    display: flex;
-    justify-content: space-between;
-    font-size: 10px;
-    color: rgba(255, 255, 255, 0.3);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-}
 
 /* Standalone Calculators Grid */
 .dt-calculators-grid {
@@ -2241,6 +2230,6 @@ img {
 
 /* Allow case section labels to use project color via inline style */
 .case-section-label[style] {
-    /* color comes from inline style — just ensure transition */
+    /* color comes from inline style - just ensure transition */
     transition: opacity 0.2s;
 }

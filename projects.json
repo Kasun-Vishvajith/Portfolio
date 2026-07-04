@@ -2,7 +2,7 @@
     {
         "id": "walmart",
         "title": "Walmart Sales Dashboard",
-        "description": "Proud to share my first Excel Dashboard, developed as part of the DS 3001 – Data Visualization course.",
+        "description": "Proud to share my first Excel Dashboard, developed as part of the DS 3001 - Data Visualization course.",
         "tech": [
             "Excel"
         ],
@@ -13,7 +13,7 @@
     {
         "id": "walmart_BI",
         "title": "Walmart Dashboard using PowerBI",
-        "description": "Interactive Power BI Dashboard – Data Visualization Project",
+        "description": "Interactive Power BI Dashboard - Data Visualization Project",
         "tech": [
             "PowerBI"
         ],
@@ -24,7 +24,7 @@
     {
         "id": "biosim",
         "title": "The Interactive Ecosystem Simulator",
-        "description": "EcoPulse is a state of the art educational platform designed to decouple the complexity of the Lotka-Volterra predator-prey model. By offering two distinct tiers—Nature Lab (Kids Version) and BioSim Pro (Professional Version)",
+        "description": "EcoPulse is a state of the art educational platform designed to decouple the complexity of the Lotka-Volterra predator-prey model. By offering two distinct tiers - Nature Lab (Kids Version) and BioSim Pro (Professional Version)",
         "tech": [
             "Python"
         ],
